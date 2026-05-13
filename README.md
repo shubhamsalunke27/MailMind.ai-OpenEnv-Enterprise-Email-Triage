@@ -1,290 +1,296 @@
+# MailMind.ai
+OpenEnv-based reinforcement learning environment for email triage, enabling agents to classify, prioritize, and route emails with SLA-aware reward modeling and real-world workflow constraints.
+
+# 🚀 MailMind.ai - Enterprise Email Triage Environment (OpenEnv)
+
+> **A Real-World AI Simulation for Intelligent Enterprise Email Operations**
+
 ---
-title: MailMind.ai
-emoji: 📬
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-app_port: 7860
-pinned: false
-short_description: OpenEnv enterprise email triage simulator
+
+## 📌 Overview
+
+Modern enterprises process **thousands of emails daily** across domains like support, HR, finance, and security. Handling these efficiently requires **accurate classification, prioritization, routing, and SLA management**.
+
+This project is **not just a classifier** — it is a **high-fidelity AI training and evaluation environment** that simulates real-world enterprise email workflows.
+
+💡 **Core Idea:**
+
+> Build a system where AI agents *learn to operate inside a live enterprise inbox* using realistic constraints, feedback loops, and decision-making scenarios.
+
+![Project Home Page](output/output1.jpeg)
+
+## 🔗 Live Demo
+
+[🚀 Deployed Link](https://huggingface.co/spaces/MidNightCoders01/MailMind.ai)
+
 ---
-# MailMind.ai — OpenEnv Enterprise Email Triage
-
-OpenEnv-based reinforcement learning environment for enterprise email triage. Agents learn to classify, prioritize, route, and resolve inbound email under real SLA pressure, escalation risk, and reviewer workflow constraints.
-
-## 🚀 Overview
-
-Enterprise email operations are a real-world, high-stakes problem: support, HR, finance, security, and operations teams must process thousands of incoming messages with speed, accuracy, and business context.
-
-This project is not a toy benchmark. It is a high-fidelity OpenEnv environment designed to train and evaluate agents on:
-
-- multi-field email understanding
-- priority and routing decisions
-- SLA-aware workflow urgency
-- escalation and human review
-- queue and backlog pressure
-- response drafting and ownership assignment
 
 ## 🎯 Problem Statement
 
-Build an AI system where an agent can:
+Design an AI-powered system where an agent can:
 
-- understand email intent, tone, and urgency
-- classify business category
-- assign priority and route to the correct department
-- detect spam and sentiment
-- request human review when needed
-- honor SLA deadlines and escalation policies
-- optimize performance through reward-driven feedback
+* 📩 Understand incoming emails (context, tone, urgency)
+* 🧠 Make intelligent decisions:
 
-## ✨ Key Features
+  * Category classification
+  * Priority assignment
+  * Department routing
+* 🔁 Handle multi-step workflows:
 
-- Real-world enterprise workflow simulation
-- Multi-turn email and threaded conversation support
-- SLA-aware reward shaping
-- Deterministic OpenEnv grading
-- Modular architecture with backend, schemas, and UI
-- Baseline agent and inference pipeline
-- Docker + Hugging Face Spaces deployment support
+  * Escalations
+  * Reviewer feedback
+  * SLA pressure
+* 📈 Maximize performance using a reward-based system
 
-## 🏗️ Architecture
+---
 
-### Backend
+## 🧠 Key Features
 
-- FastAPI runtime in `backend/main.py`
-- OpenEnv environment service in `backend/services/env_service.py`
-- Baseline runner in `backend/services/baseline_service.py`
-- OpenEnv adapter in `server/app.py`
-- SQLite persistence in `backend/db/sqlite.py`
+✅ Real-world enterprise simulation (not a toy problem) <br>
+✅ Multi-turn workflows with escalation logic <br>
+✅ SLA-aware decision-making <br>
+✅ Deterministic grading system <br>
+✅ Reward-based learning environment <br>
+✅ OpenEnv compliant architecture <br>
+✅ Interactive frontend dashboard <br>
+✅ Free LLM integration via Hugging Face Router <br>
 
-### Schemas
+---
 
-- Observation and action contracts in `backend/schemas/env.py`
-- OpenEnv SDK compatibility in `backend/schemas/openenv_sdk.py`
+## 🏗️ System Architecture
 
-### Dataset & training
-
-- Synthetic dataset generator in `training/data_generator.py`
-- Training pipeline in `train.py`
-- Local inference engine in `backend/services/inference_engine.py`
-- Saved evaluation metrics in `models/metrics.json`
-
-### Frontend
-
-- React + TypeScript + Tailwind dashboard in `ui`
-- Zustand state management and Recharts analytics
-- Inbox, decision, reviewer, and analytics panels
-
-## 🔌 OpenEnv Contract
-
-The environment exposes the standard OpenEnv interaction endpoints:
-
-- `POST /reset`
-- `POST /step`
-- `GET /state`
-
-Validator-facing endpoints:
-
-- `GET /health`
-- `GET /metadata`
-- `GET /schema`
-- `POST /mcp`
-
-Root configuration is in `openenv.yaml`.
-
-## 🧠 Observation / Action / Reward
-
-### Observation
-
-The typed observation model is `TriageObservation` in `backend/schemas/env.py`.
-
-It includes operational state such as:
-
-- `environment_id`, `episode_id`, `task_id`
-- `difficulty`, `step_count`, `max_steps`
-- `email`, `thread_messages`, `pending_actions`
-- `sla_status`, `escalation_level`, `human_review_required`
-- `queue_depth`, `reviewer_backlog`, `business_impact`
-- `suggested_departments`, `ownership_status`, `completion_score`
-
-### Action
-
-The typed action model is `AgentAction` in `backend/schemas/env.py`.
-
-Agent outputs include:
-
-- `category`
-- `priority`
-- `department`
-- `spam`
-- `sentiment`
-- `urgency`
-- `response_draft`
-- `escalation`
-- `confidence`
-- `internal_note`
-- `request_human_review`
-- `assigned_owner`
-- `resolution_eta_hours`
-- `customer_follow_up_required`
-- `escalation_target`
-
-### Reward
-
-The typed reward model is `RewardSignal` in `backend/schemas/env.py`.
-
-It produces:
-
-- normalized `score` in `0.0-1.0`
-- `score_breakdown`
-- `matched`, `mistakes`, `partial_progress`
-- `penalty_flags`
-
-## 🧩 Tasks
-
-### Task 1 — Easy
-
-`task-email-classification-easy`
-
-Objective: classify a single inbound message into the correct business category.
-
-### Task 2 — Medium
-
-`task-triage-medium`
-
-Objective: classify, prioritize, and route an email while respecting SLA urgency.
-
-### Task 3 — Hard
-
-`task-full-enterprise-hard`
-
-Objective: manage the full enterprise triage workflow, including spam, sentiment, SLA pressure, escalation, ownership, ETA planning, reviewer handoff, and queue-aware decision making.
-
-## 🧮 Grading & Reward Design
-
-Grading is deterministic in `graders/email_grader.py` and normalized to a valid OpenEnv score range.
-
-The grader rewards:
-
-- classification accuracy
-- priority alignment
-- routing correctness
-- SLA-aware urgency handling
-- spam detection
-- escalation discipline
-- review requests
-- response quality on hard turns
-- ownership and ETA realism
-
-Penalties apply for SLA violations, incorrect routing, ignored urgency, and over-escalation.
-
-## 📦 Quick Start
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
+```
+Dataset → Environment → Agent → Action → Grader → Reward → Loop
 ```
 
-Run the environment:
+### 🔹 Components Breakdown
 
-```bash
-python run.py --host 127.0.0.1 --port 8000
+### 1. 📊 Dataset
+
+* Synthetic + structured enterprise emails
+* Includes:
+
+  * Subject, Body
+  * Category (ground truth)
+  * Priority & Routing
+  * SLA & Urgency signals
+
+---
+
+### 2. ⚙️ Environment (OpenEnv Core)
+
+Implements:
+
+* `reset()` → Initialize environment
+* `step(action)` → Evaluate agent decision
+* `state()` → Current system state
+
+Supports:
+
+* Multi-turn conversations
+* Escalation workflows
+* SLA tracking
+* Human reviewer simulation
+
+---
+
+### 3. 🤖 Agent
+
+* Runs via `inference.py`
+* Uses **Hugging Face Router (OpenAI-compatible API)**
+* Generates actions based on environment state
+
+---
+
+### 4. 🧮 Grader System
+
+* Deterministic scoring engine
+* Evaluates:
+
+  * Category accuracy
+  * Priority correctness
+  * Routing accuracy
+
+📊 Output: `score ∈ [0.0, 1.0]`
+
+---
+
+### 5. 🎯 Reward System
+
+Provides continuous feedback:
+
+* ✅ Partial rewards for correct decisions
+* ❌ Penalties for:
+
+  * SLA violations
+  * Incorrect routing
+  * Ignoring urgency
+
+---
+
+### 6. 🌐 API Layer
+
+Endpoints:
+
+* `/reset`
+* `/step`
+* `/state`
+* `/health`
+* `/metadata`
+* `/schema`
+
+---
+
+### 7. 📊 Frontend Dashboard
+
+A visual **Email Operations Command Center**:
+
+* 📬 Live email threads
+* 🤖 Agent decisions
+* 🚨 Escalation tracking
+* 📈 Reward progression
+* 📊 System telemetry
+
+---
+
+## 🎮 Task Levels
+
+### 🟢 Easy — Basic Classification
+
+* Single email
+* Classify + route
+
+---
+
+### 🟡 Medium — Context-Aware Triage
+
+* Includes SLA & urgency
+* Requires prioritization intelligence
+
+---
+
+### 🔴 Hard — Multi-Turn Workflow
+
+* Threaded conversations
+* Escalations + feedback loops
+* Queue pressure simulation
+
+---
+
+## 🔄 OpenEnv Interface
+
+### 📥 Observation (State)
+
+```json
+{
+  "subject": "...",
+  "body": "...",
+  "sender_type": "...",
+  "sla_hours": 24,
+  "urgency_flag": 1
+}
 ```
 
-API is available at `http://127.0.0.1:8000`.
+### 📤 Action
 
-## 📊 Frontend Dashboard
-
-Run locally:
-
-```bash
-cd ui
-npm install
-npm run dev
+```json
+{
+  "category": "human_resources",
+  "priority": "high",
+  "route": "people_ops"
+}
 ```
 
-If the frontend runs separately:
+### 🔁 Step Output
 
-```bash
-VITE_API_BASE_URL=http://localhost:8000
+```json
+{
+  "observation": {...},
+  "reward": 0.75,
+  "done": false,
+  "info": {}
+}
 ```
 
-## ⚡ Evaluation Pipeline
+---
 
-The submission pipeline is `inference.py`.
+## ⚡ Baseline Model Setup
 
-### Required environment variables
+Uses **Meta LLaMA 3 via Hugging Face Router**
 
-```bash
-HF_TOKEN=<your_hugging_face_token>
+### 🔐 Environment Variables
+
+```
 API_BASE_URL=https://router.huggingface.co/v1
+HF_TOKEN=your_token
 MODEL_NAME=meta-llama/Meta-Llama-3-8B-Instruct
-OPENAI_API_KEY=<optional>
 ```
 
-### Run evaluation
+### ▶️ Run
 
 ```bash
-python inference.py --task-id task-email-classification-easy --max-steps 5 --seed 42
+python inference.py
 ```
 
-### Output expectations
+---
 
-The entrypoint logs the OpenEnv-style evaluation summary and returns a normalized final score.
+## 🚀 Deployment
 
-## ✅ Validation
+* 🐳 Dockerized for easy setup
+* ☁️ Deployable on Hugging Face Spaces
+* ✅ OpenEnv compliant
 
-Validate the OpenEnv contract from the repo root:
+---
 
-```bash
-python -m openenv.cli validate
-```
+## 🏆 Why This Project Stands Out
 
-Use the lightweight helper before submission:
+### 🔥 Real-World Impact
 
-```bash
-python prevalidate.py
-```
+Simulates actual enterprise workflows — directly applicable to industry systems.
 
-## 🐳 Docker
+### 🎯 Strong Evaluation Design
 
-Build and run locally:
+* Multi-level tasks (easy → hard)
+* Deterministic grading
+* Clear performance metrics
 
-```bash
-docker build -t email-triage-openenv .
-docker run -p 7860:7860 email-triage-openenv
-```
+### 🧩 Advanced System Design
 
-The container boots the dataset and starts the API via `server/app.py`.
+* Clean state transitions
+* Reward-driven learning loop
+* Modular architecture
 
-## 🌐 Deployment
+### 💡 Innovation
 
-This repository is ready for Docker deployment and Hugging Face Spaces.
+* Human-in-the-loop simulation
+* Multi-turn AI reasoning
+* Enterprise-grade scenario modeling
 
-Recommended Space variables:
+---
 
-- `API_BASE_URL`
-- `MODEL_NAME`
-- `HF_TOKEN`
-- `OPENAI_API_KEY`
-- `MODEL_BACKEND`
+## 🔮 Future Improvements
 
-## 🧠 Why MailMind.ai Wins
+* 🧠 Add long-term agent memory
+* 🤝 Multi-agent collaboration
+* 🎯 Reinforcement learning training loop
 
-- Realistic enterprise workflow modeling
-- OpenEnv-native evaluation and grading
-- Dense reward shaping for partial progress
-- Multi-turn, escalation-aware task design
-- Clear validation and deployment path
+---
 
-## 📍 Source Structure
+## 🧾 Conclusion
 
-- `backend/` — environment runtime, schemas, services
-- `graders/` — deterministic scoring engine
-- `training/` — dataset generation and training pipeline
-- `server/` — OpenEnv API adapter
-- `ui/` — React dashboard
-- `inference.py` — submission evaluation pipeline
-- `run.py` — local API launcher
-- `prevalidate.py` — validation helper
+This project bridges the gap between:
+
+> ❌ Simple ML classification tasks
+> ✅ Real-world enterprise decision-making systems
+
+💡 **Key Insight:**
+
+> This is not just an email app — it’s a **training ground for intelligent enterprise AI agents**.
+
+---
+
+## 👨‍💻 Author
+
+** Shubham Salunke**
+
+---
