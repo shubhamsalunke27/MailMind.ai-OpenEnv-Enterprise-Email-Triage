@@ -19,7 +19,7 @@ This project is **not just a classifier** — it is a **high-fidelity AI trainin
 
 ## 🔗 Live Demo
 
-[🚀 Deployed Link](https://huggingface.co/spaces/MidNightCoders01/MailMind.ai)
+[🚀 Deployed Link](https://huggingface.co/spaces/shubhamsalunke/MailMind.ai)
 
 ---
 
