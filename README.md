@@ -1,183 +1,313 @@
+# 🚀 MailMind.ai  
+## Enterprise Email Triage Environment (OpenEnv)
 
-# 🚀 MailMind.ai - Enterprise Email Triage Environment (OpenEnv)
+<div align="center">
 
-> **A Real-World AI Simulation for Intelligent Enterprise Email Operations**
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
+![AI](https://img.shields.io/badge/AI-Agent%20Simulation-orange?style=for-the-badge)
+![LLM](https://img.shields.io/badge/LLM-Llama3-success?style=for-the-badge)
+![OpenEnv](https://img.shields.io/badge/OpenEnv-Compatible-purple?style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?style=for-the-badge&logo=docker)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-Deployed-yellow?style=for-the-badge&logo=huggingface)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 
----
+# 📩 Intelligent Enterprise Email Operations Simulation
 
-## 📌 Overview
+### A High-Fidelity AI Environment for Enterprise Email Triage, Routing & Decision Intelligence
 
-Modern enterprises process **thousands of emails daily** across domains like support, HR, finance, and security. Handling these efficiently requires **accurate classification, prioritization, routing, and SLA management**.
+*Built to simulate real-world enterprise inbox workflows using AI agents, reward systems, SLA pressure, escalation logic, and OpenEnv-compatible architecture.*
 
-This project is **not just a classifier** — it is a **high-fidelity AI training and evaluation environment** that simulates real-world enterprise email workflows.
-
-💡 **Core Idea:**
-
-> Build a system where AI agents *learn to operate inside a live enterprise inbox* using realistic constraints, feedback loops, and decision-making scenarios.
-
-![Project Home Page](output/output1.jpeg)
-
-## 🔗 Live Demo
-
-[🚀 Deployed Link](https://huggingface.co/spaces/shubhamsalunke/MailMind.ai)
+</div>
 
 ---
 
-## 🎯 Problem Statement
+# 📸 Project Preview
 
-Design an AI-powered system where an agent can:
+<div align="center">
 
-* 📩 Understand incoming emails (context, tone, urgency)
-* 🧠 Make intelligent decisions:
+<img src="output/output1.jpeg" alt="MailMind.ai Homepage" width="100%">
 
-  * Category classification
-  * Priority assignment
-  * Department routing
-* 🔁 Handle multi-step workflows:
-
-  * Escalations
-  * Reviewer feedback
-  * SLA pressure
-* 📈 Maximize performance using a reward-based system
+</div>
 
 ---
 
-## 🧠 Key Features
+# 🔗 Live Demo
 
-✅ Real-world enterprise simulation (not a toy problem) <br>
-✅ Multi-turn workflows with escalation logic <br>
-✅ SLA-aware decision-making <br>
-✅ Deterministic grading system <br>
-✅ Reward-based learning environment <br>
-✅ OpenEnv compliant architecture <br>
-✅ Interactive frontend dashboard <br>
-✅ Free LLM integration via Hugging Face Router <br>
+## 🚀 Try the Application
+
+https://huggingface.co/spaces/shubhamsalunke/MailMind.ai
 
 ---
 
-## 🏗️ System Architecture
+# 📌 Overview
 
+Modern enterprises receive **thousands of operational emails daily** across domains such as:
+
+- Customer Support
+- Human Resources
+- Finance
+- IT Operations
+- Security & Compliance
+
+Managing these workflows manually becomes increasingly inefficient and error-prone.
+
+---
+
+## 💡 MailMind.ai Solves This Problem
+
+**MailMind.ai** is not just an email classification project.
+
+It is a **realistic AI simulation environment** where intelligent agents learn to operate inside enterprise inbox systems under practical operational constraints.
+
+The system enables AI agents to:
+
+- 📩 Understand email intent, urgency, and tone
+- 🧠 Perform intelligent routing & prioritization
+- 🔁 Handle escalations and multi-turn workflows
+- 📊 Operate under SLA pressure
+- 🎯 Learn through deterministic reward systems
+
+---
+
+# 🎯 Core Vision
+
+> Build an enterprise-grade AI environment where intelligent agents learn operational decision-making inside realistic inbox ecosystems.
+
+---
+
+# 🧠 Key Features
+
+## ✅ Enterprise-Grade Email Simulation
+
+- Real-world inbox workflow modeling
+- Multi-department routing scenarios
+- Human-reviewer interaction simulation
+
+---
+
+## 🔁 Multi-Turn Workflow Intelligence
+
+- Escalation handling
+- Feedback loops
+- Queue pressure simulation
+- Stateful workflow transitions
+
+---
+
+## 🚨 SLA-Aware Decision Systems
+
+- Time-sensitive task prioritization
+- SLA pressure evaluation
+- Urgency-aware routing intelligence
+
+---
+
+## 🧮 Deterministic Evaluation Engine
+
+Evaluates:
+
+- Classification accuracy
+- Priority correctness
+- Routing precision
+- Workflow efficiency
+
+---
+
+## 🎯 Reward-Driven Learning Environment
+
+- Continuous feedback loop
+- Partial reward scoring
+- Penalty-based operational correction
+
+---
+
+## 🌐 OpenEnv-Compatible Architecture
+
+Designed using standardized environment concepts:
+
+- `reset()`
+- `step(action)`
+- `state()`
+
+making it extensible for AI agent training research.
+
+---
+
+## 🤖 LLM-Powered Decision Making
+
+Integrated with:
+
+- Hugging Face Router
+- OpenAI-Compatible APIs
+- Meta LLaMA 3
+
+---
+
+# 🏗️ System Architecture
+
+<div align="center">
+
+```text
+Dataset → Environment → Agent → Action → Grader → Reward → Feedback Loop
 ```
-Dataset → Environment → Agent → Action → Grader → Reward → Loop
+
+</div>
+
+---
+
+# ⚙️ Architecture Components
+
+# 📊 1. Enterprise Email Dataset
+
+Structured synthetic enterprise email system containing:
+
+- Subject
+- Email Body
+- Sender Metadata
+- Department Labels
+- Priority Signals
+- SLA Constraints
+- Urgency Indicators
+
+Supports realistic enterprise workflow simulation.
+
+---
+
+# ⚙️ 2. OpenEnv Core Environment
+
+The environment controls operational workflow simulation.
+
+## Core Methods
+
+```python
+reset()
+step(action)
+state()
 ```
 
-### 🔹 Components Breakdown
+## Capabilities
 
-### 1. 📊 Dataset
-
-* Synthetic + structured enterprise emails
-* Includes:
-
-  * Subject, Body
-  * Category (ground truth)
-  * Priority & Routing
-  * SLA & Urgency signals
+- Stateful conversations
+- Escalation logic
+- SLA monitoring
+- Human-reviewer simulation
+- Queue management workflows
 
 ---
 
-### 2. ⚙️ Environment (OpenEnv Core)
+# 🤖 3. AI Agent Layer
 
-Implements:
+Implemented via:
 
-* `reset()` → Initialize environment
-* `step(action)` → Evaluate agent decision
-* `state()` → Current system state
+```bash
+inference.py
+```
 
-Supports:
+The AI agent:
 
-* Multi-turn conversations
-* Escalation workflows
-* SLA tracking
-* Human reviewer simulation
-
----
-
-### 3. 🤖 Agent
-
-* Runs via `inference.py`
-* Uses **Hugging Face Router (OpenAI-compatible API)**
-* Generates actions based on environment state
+- Observes inbox state
+- Generates operational actions
+- Interacts with the environment loop
+- Uses LLM reasoning for decision-making
 
 ---
 
-### 4. 🧮 Grader System
+# 🧮 4. Grading & Evaluation Engine
 
-* Deterministic scoring engine
-* Evaluates:
+Deterministic scoring system evaluating:
 
-  * Category accuracy
-  * Priority correctness
-  * Routing accuracy
+- Category classification
+- Priority assignment
+- Department routing
+- Operational correctness
 
-📊 Output: `score ∈ [0.0, 1.0]`
+## Output
 
----
-
-### 5. 🎯 Reward System
-
-Provides continuous feedback:
-
-* ✅ Partial rewards for correct decisions
-* ❌ Penalties for:
-
-  * SLA violations
-  * Incorrect routing
-  * Ignoring urgency
+```python
+score ∈ [0.0, 1.0]
+```
 
 ---
 
-### 6. 🌐 API Layer
+# 🎯 5. Reward System
 
-Endpoints:
+Continuous reinforcement-style feedback mechanism.
 
-* `/reset`
-* `/step`
-* `/state`
-* `/health`
-* `/metadata`
-* `/schema`
+## Rewards
 
----
+✅ Correct classification  
+✅ Correct routing  
+✅ Proper SLA prioritization  
 
-### 7. 📊 Frontend Dashboard
+## Penalties
 
-A visual **Email Operations Command Center**:
-
-* 📬 Live email threads
-* 🤖 Agent decisions
-* 🚨 Escalation tracking
-* 📈 Reward progression
-* 📊 System telemetry
+❌ SLA violations  
+❌ Incorrect escalation  
+❌ Wrong department routing  
+❌ Ignoring urgency indicators  
 
 ---
 
-## 🎮 Task Levels
+# 🌐 6. API Layer
 
-### 🟢 Easy — Basic Classification
+## Available Endpoints
 
-* Single email
-* Classify + route
+```bash
+/reset
+/step
+/state
+/health
+/metadata
+/schema
+```
 
----
-
-### 🟡 Medium — Context-Aware Triage
-
-* Includes SLA & urgency
-* Requires prioritization intelligence
-
----
-
-### 🔴 Hard — Multi-Turn Workflow
-
-* Threaded conversations
-* Escalations + feedback loops
-* Queue pressure simulation
+Provides modular environment interaction.
 
 ---
 
-## 🔄 OpenEnv Interface
+# 📊 7. Frontend Dashboard
 
-### 📥 Observation (State)
+A visual **Enterprise Email Operations Command Center**.
+
+## Features
+
+- 📬 Live email streams
+- 🤖 Agent action visualization
+- 🚨 Escalation monitoring
+- 📈 Reward telemetry
+- 📊 Operational analytics
+- 🔄 Workflow tracking
+
+---
+
+# 🎮 Task Difficulty Levels
+
+## 🟢 Easy — Basic Classification
+
+- Single email
+- Simple classification & routing
+
+---
+
+## 🟡 Medium — Context-Aware Triage
+
+- Includes urgency & SLA constraints
+- Requires contextual prioritization
+
+---
+
+## 🔴 Hard — Enterprise Workflow Simulation
+
+- Multi-turn conversations
+- Escalations & reviewer loops
+- Operational queue pressure
+- Stateful reasoning
+
+---
+
+# 🔄 OpenEnv Interface Design
+
+# 📥 Observation Space
 
 ```json
 {
@@ -189,7 +319,9 @@ A visual **Email Operations Command Center**:
 }
 ```
 
-### 📤 Action
+---
+
+# 📤 Action Space
 
 ```json
 {
@@ -199,7 +331,9 @@ A visual **Email Operations Command Center**:
 }
 ```
 
-### 🔁 Step Output
+---
+
+# 🔁 Environment Step Output
 
 ```json
 {
@@ -212,19 +346,25 @@ A visual **Email Operations Command Center**:
 
 ---
 
-## ⚡ Baseline Model Setup
+# ⚡ Baseline LLM Setup
 
-Uses **Meta LLaMA 3 via Hugging Face Router**
+## 🧠 Model
 
-### 🔐 Environment Variables
+Meta LLaMA 3 via Hugging Face Router
 
-```
+---
+
+# 🔐 Environment Variables
+
+```env
 API_BASE_URL=https://router.huggingface.co/v1
 HF_TOKEN=your_token
 MODEL_NAME=meta-llama/Meta-Llama-3-8B-Instruct
 ```
 
-### ▶️ Run
+---
+
+# ▶️ Run Inference
 
 ```bash
 python inference.py
@@ -232,63 +372,101 @@ python inference.py
 
 ---
 
-## 🚀 Deployment
+# 🚀 Deployment
 
-* 🐳 Dockerized for easy setup
-* ☁️ Deployable on Hugging Face Spaces
-* ✅ OpenEnv compliant
+## Supported Deployment Platforms
 
----
-
-## 🏆 Why This Project Stands Out
-
-### 🔥 Real-World Impact
-
-Simulates actual enterprise workflows — directly applicable to industry systems.
-
-### 🎯 Strong Evaluation Design
-
-* Multi-level tasks (easy → hard)
-* Deterministic grading
-* Clear performance metrics
-
-### 🧩 Advanced System Design
-
-* Clean state transitions
-* Reward-driven learning loop
-* Modular architecture
-
-### 💡 Innovation
-
-* Human-in-the-loop simulation
-* Multi-turn AI reasoning
-* Enterprise-grade scenario modeling
+- ☁️ Hugging Face Spaces
+- 🐳 Docker Containers
+- 🌐 Cloud Infrastructure
 
 ---
 
-## 🔮 Future Improvements
+# 🏆 Why MailMind.ai Stands Out
 
-* 🧠 Add long-term agent memory
-* 🤝 Multi-agent collaboration
-* 🎯 Reinforcement learning training loop
+# 🔥 Real Enterprise Relevance
 
----
-
-## 🧾 Conclusion
-
-This project bridges the gap between:
-
-> ❌ Simple ML classification tasks
-> ✅ Real-world enterprise decision-making systems
-
-💡 **Key Insight:**
-
-> This is not just an email app — it’s a **training ground for intelligent enterprise AI agents**.
+Unlike toy classifiers, MailMind.ai simulates realistic operational inbox systems.
 
 ---
 
-## 👨‍💻 Author
+# 🎯 Strong AI Evaluation Design
 
-** Shubham Salunke**
+- Deterministic grading
+- Multi-level workflow complexity
+- Reward-driven evaluation
+- Stateful decision environments
 
 ---
+
+# 🧩 Advanced System Engineering
+
+- Modular architecture
+- Scalable environment logic
+- OpenEnv integration
+- Enterprise workflow modeling
+
+---
+
+# 💡 Innovation Highlights
+
+- Human-in-the-loop simulation
+- Multi-turn reasoning systems
+- AI operational intelligence
+- Enterprise workflow abstraction
+
+---
+
+# 🔮 Future Roadmap
+
+- 🧠 Long-term agent memory
+- 🤝 Multi-agent collaboration
+- 🎯 Reinforcement Learning integration
+- 📊 Advanced analytics dashboard
+- ☁️ Distributed agent orchestration
+- 📡 Real enterprise inbox integration
+
+---
+
+# 🧾 Conclusion
+
+MailMind.ai bridges the gap between:
+
+```text
+❌ Simple ML Classification Projects
+                ↓
+✅ Real-World Enterprise AI Decision Systems
+```
+
+---
+
+# 💡 Key Insight
+
+> MailMind.ai is not just an email classifier — it is a training ground for intelligent enterprise AI agents operating inside realistic organizational workflows.
+
+---
+
+# 👨‍💻 Author
+
+## Shubham Salunke
+
+### 🚀 AI Engineer • Full Stack Developer • System Architect
+
+Focused on:
+- Enterprise AI Systems
+- Agentic Workflows
+- Intelligent Automation
+- AI Environment Simulation
+- Scalable System Design
+
+---
+
+<div align="center">
+
+# 📩 Reimagining Enterprise Email Operations with AI
+
+### Intelligent Agents • Operational Reasoning • Enterprise Automation
+
+Made with ❤️ using AI, LLMs & Modern System Design
+
+</div>
